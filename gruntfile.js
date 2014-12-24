@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     less: {
       development: {
         options: {
-          paths: ["source/content"]
+          paths: ["node_modules", "source/content"]
         },
         files: {
           "source/content/main.css": "source/content/less/main.less"
@@ -20,8 +20,10 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['jshint']
+      css: {
+        files: ['source/content/**/*.less'],
+        tasks: ['less:development']
+      },
     }
   });
 
@@ -29,5 +31,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['less:development']);
+  grunt.registerTask('default', ['watch:css']);
 };
