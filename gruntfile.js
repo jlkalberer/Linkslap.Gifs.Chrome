@@ -11,6 +11,19 @@ module.exports = function(grunt) {
         }
       }
     },
+    copy: {
+      main: {
+        expand: true, 
+        flatten: true, 
+        src: [
+          'node_modules/angular/*.js',
+          'node_modules/angular/*.js.*',
+          'node_modules/jquery/dist/*',
+        ], 
+        dest: 'source/js/vendor', 
+        filter: 'isFile'
+      }
+    },
     jshint: {
       files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
       options: {
@@ -28,8 +41,10 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['watch:css']);
+  grunt.registerTask('setup', ['copy:main'])
+  grunt.registerTask('default', ['copy:main', 'watch:css']);
 };

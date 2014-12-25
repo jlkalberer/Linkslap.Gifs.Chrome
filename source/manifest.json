@@ -1,0 +1,27 @@
+{
+	"manifest_version": 2,
+
+	"name": "Linkslap Gif Search",
+	"description": "Find and share all your favorite gifs!",
+	"version": "0.0.1",
+	"icons" : {
+		"16": "img/icon-16.png",
+		"48": "img/icon-48.png",
+		"128": "img/icon-128.png"
+	},
+	"content_scripts": [
+		{
+		  "matches": [ "http://*/*", "https://*/*" ],
+		  "js": ["/js/vendor/jquery-2.1.1.min.js","/js/main.js"],
+		  "run_at" : "document_start"
+		}
+	],
+	"permissions": [
+		"http://*/*",
+		"https://*/*"
+	],
+	"content_security_policy": "script-src 'self' 'unsafe-eval' https://www.google-analytics.com; object-src 'self'",
+	"incognito" : "spanning"
+	//"key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC42mC/DRu5hGknoEQuYcJnTp1jNJ4XV7tetvvgwNvWI9ZFKJYdu0vcowTsrmrKxgABY8sU2SA4irPD51eB1/9DMXVZ348E5Qh+nuW/izrI0CVjNAmG5xOAzrGr6KzEIWLQgrboBBA25xthHzWGPna9qVjprOWUWxfdDiMBEMGt7QIDAQAB",
+	//"web_accessible_resources": [ "header.html", "/css/header.css" ]
+}
