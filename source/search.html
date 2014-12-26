@@ -1,0 +1,54 @@
+<html ng-app="linkslapGifSearch">
+  <head>
+    <link href='content/main.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="linkslap__gifs" ng-controller="SearchCtrl">
+      <div class="linkslap__content clearfix">
+        <div class="text-right">
+          <a href="#" ng-click="close()">&times;&nbsp;close</a>
+        </div>
+        <div class="clearfix">
+          <a class="pull-left" href="https://linkslap.me/gifs" target="_blank">
+            <img ng-src="content/img/logo.png" title="Linkslap Gif Search" />
+          </a>
+          <form class="pull-right" ng-submit="submitForm()">
+            <div class="input-group content__search">
+              <input id="searchInput" type="search" class="form-control" placeholder="Search for gif" ng-model="query">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Search</button>
+              </span>
+            </div>
+          </form>
+        </div>
+
+        <div class="gif__results row">
+          <div ng-repeat="result in searchResults" class="gif__result col-xs-4">
+            <div class="search-wrapper">
+              <div class="search-content" ng-mouseenter="result.showOptions = true" ng-mouseleave="result.showOptions = false">
+                <gif source="{{result.url}}" thumb="{{result.thumbnailUrl}}">
+                  <ul class="search__actions" ng-if="result.showOptions">
+                    <li class="pull-left">
+                      <a href="#" class="search__action search__ok" title="Insert Gif" ng-click="sendGif(result);$event.preventDefault()"><i class="glyphicon glyphicon-ok"></i></a>
+                    </li>
+                    <li class="pull-left">
+                      <a href="#" class="search__action search__share" title="Share Gif" ng-click="copy(result);$event.preventDefault()"><i class="glyphicon glyphicon-share"></i></a>
+                    </li>
+                    <li class="pull-left">
+                      <a ng-href="{{result.url}}v" class="search__action search__new-window" title="View Gif Source" target="_blank"><i class="glyphicon glyphicon-new-window"></i></a>
+                    </li>
+                </gif>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/vendor/angular.js" type="text/javascript"></script>
+    <script src="/js/vendor/underscore.js" type="text/javascript"></script>
+    <script src="/js/vendor/restangular.js" type="text/javascript"></script>
+    <script src="/js/app.js" type="text/javascript"></script>
+    <script src="/js/directives/gif.directive.js" type="text/javascript"></script>
+    <script src="/js/controllers/search.controller.js" type="text/javascript"></script>
+  </body>
+</html>

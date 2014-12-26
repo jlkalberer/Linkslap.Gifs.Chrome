@@ -1,3 +1,114 @@
-.linkslap__gifs {
-	@import "_bootstrap";
+@import "_bootstrap";
+
+@icon-font-path:          "fonts/";
+
+html {
+    overflow:hidden;
+}
+body {
+    background-image: url('img/background.png')
+}
+
+.linkslap__content {
+	border: solid 5px #323232;
+
+	padding:5px 20px 20px;
+
+	form {
+		padding-top:15px;
+	}
+
+	.content__search {
+		max-width:380px;
+	}
+}
+
+.gif__results {
+	margin-top:20px;
+	max-height:400px;
+	overflow-y:scroll;
+	
+	.gif__result {
+        margin:0;
+		padding:0;
+	}
+
+    img {
+        width:100%;
+    }
+    .gif-image {
+        position:absolute;
+        top:0;
+        background-position:50% 50%;
+        background-size:cover;
+        width:100%;
+        height:100%;
+    }
+    li {
+        padding:0;
+        margin-bottom:-5px;
+    }
+    a {
+        display:block;
+        width:100%;
+        height:100%;
+        overflow:hidden;
+    }
+    .search-wrapper {
+        width: 100%; // whatever width you want
+        display: inline-block;
+        position: relative;
+    }
+    .search-wrapper:after {
+        padding-top: 100%; // 16:9 ratio
+        display: block;
+        content: '';
+    }
+    .search-content {
+        position: absolute;
+        top: 0; bottom: 0; right: 0; left: 0; // fill parent
+    }
+    video {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+    }
+
+    .search__actions {
+        position:absolute;
+        top:10px;
+        left:10px;
+        padding:0;
+        
+        li {
+            margin-right:5px;
+        }
+    }
+    .search__action {
+        width:28px !important;
+        height:28px !important;
+        text-align: center;
+        border-radius: 50%;
+        font-size:14px;
+        background:#4B91AF;
+        border:solid 1px #323232;
+        color:#FFF;
+        
+        &, &:hover, &:active, &:focus {
+            outline:0;
+        }
+
+
+        &.search__ok {
+            padding-top:4px;
+        }
+        &.search__share {
+            padding-top:4px;
+        }
+        &.search__new-window {
+            padding: 4px 0 0 2px;
+        }
+    }
 }
