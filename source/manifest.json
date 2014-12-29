@@ -3,14 +3,13 @@
 
 	"name": "Linkslap Gif Search",
 	"description": "Find and share all your favorite gifs!",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"icons" : {
 		"16": "content/img/icon-16.png",
 		"48": "content/img/icon-48.png",
 		"128": "content/img/icon-128.png"
 	},
 	"background": {
-		//"persistent": false,
 	    "scripts": ["/js/background.js"]
 	},
 	"content_scripts": [
@@ -31,9 +30,9 @@
 		"contextMenus",
 		"clipboardWrite"
 	],
-	"content_security_policy": "script-src 'self' 'unsafe-eval' https://www.google-analytics.com; object-src 'self'",
+	"content_security_policy": "script-src 'self' 'unsafe-eval' https://ssl.google-analytics.com; object-src 'self'",
 	"incognito" : "spanning",
-	//"key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC42mC/DRu5hGknoEQuYcJnTp1jNJ4XV7tetvvgwNvWI9ZFKJYdu0vcowTsrmrKxgABY8sU2SA4irPD51eB1/9DMXVZ348E5Qh+nuW/izrI0CVjNAmG5xOAzrGr6KzEIWLQgrboBBA25xthHzWGPna9qVjprOWUWxfdDiMBEMGt7QIDAQAB",
+	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmQJZiFkzPwOr6esaeYZKYQJlwFy3pvlvkv4XNuuxLnA8QlheoDEyuNzj9ZEWiabVBvrSIBSVjmruYXwJxi5h563Sl3bEubzwavlv2H24OE8kp5HYBDn9yK7OQFjzjcS9VSUo0Kpj2omQghmMyv7Ew2YblCRNzsPRVjj1j0C3UEMMj+36mf36WfEHIURg6vp61h+yX6lUbynkBwMiqPul9ZGWFQESULCvxkPVfAoBSEp4AKV+mvqw/rjP7NuxFYxUQs8+SfhiBI7yBJtYEEop92xIjX5DedXCl97octGCcTGg7xoeh2buXb6B2OMMr9G0C+9q8dOUCVuODHMRr/etEwIDAQAB",
 	"web_accessible_resources": [ 
 		"*.html",
 		"/content/main.css",
