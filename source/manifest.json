@@ -3,7 +3,7 @@
 
 	"name": "Linkslap Gif Search",
 	"description": "Find and share all your favorite gifs!",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"icons" : {
 		"16": "content/img/icon-16.png",
 		"48": "content/img/icon-48.png",
